@@ -255,7 +255,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 	if(servers.length > 0) {
 		const server = servers[0];
 		const relativePath = server.ruTorrentrelativepath || server.utorrentrelativepath || server.delugerelativepath || server.rtorrentxmlrpcrelativepath || "/";
-		const url = "http" + (server.hostsecure ? "s" : "") + "://" + server.host + ":" + server.port + relativePath;
+		const url = "http" + (server.hostsecure ? "s" : "") + "://" + server.host + (server.port ? ":" + server.port : "") + relativePath;
 		chrome.tabs.create({ url: url });
 	}
 });
